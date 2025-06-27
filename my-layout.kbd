@@ -20,20 +20,31 @@
   xcp (tap-hold-next 200 esc met)
   xpr (tap-hold-next 200 print met)
   xrp (tap-hold-next 200 ret met)
+  xrr (tap-hold-next 200 ret lctl)
   xrb (tap-hold-next 200 bspc rctl)
   sl (sticky-key 300 lsft)
   sr (sticky-key 300 rsft)
   spc-nav (tap-hold-next-release 200 spc (layer-toggle nav))
   tgb (layer-switch base)
   tgq (layer-switch qwerty)
+
+  hlm (tap-hold-next-release 200 a met)
+  hla (tap-hold-next-release 200 r lalt)
+  hlc (tap-hold-next-release 200 s lctl)
+  hls (tap-hold-next-release 200 t lsft)
+
+  hrm (tap-hold-next-release 200 o met)
+  hra (tap-hold-next-release 200 i ralt)
+  hrc (tap-hold-next-release 200 e rctl)
+  hrs (tap-hold-next-release 200 n rsft)
 )
 
 (deflayer base
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
-  @xcp a    r    s    t    d    h    n    e    i    o    '    @xrp
+  @xcp @hlm    @hla   @hlc    @hls    d    h    @hrs    @hrc    @hra    @hrm    '    @xrp
   @sl  z    x    c    v    b    k    m    ,    .    /    @sr
-  fn lalt lmet lctl           @spc-nav            @xrb print ralt
+  fn lalt lmet @xrr           @spc-nav            @xrb print ralt
 )
 
 (deflayer qwerty
