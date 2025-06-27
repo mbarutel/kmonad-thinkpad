@@ -1,0 +1,53 @@
+(defcfg
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "My KMonad output" "sleep 1 && setxkbmap -option compose:ralt")
+  cmp-seq ralt
+  cmp-seq-delay 5
+  fallthrough true
+  allow-cmd false
+  implicit-around around
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  fn lctl lmet lalt           spc            ralt print rctl
+)
+
+(defalias
+  xcp (tap-hold-next 200 esc met)
+  xpr (tap-hold-next 200 print met)
+  xrp (tap-hold-next 200 ret met)
+  xrb (tap-hold-next 200 bspc rctl)
+  sl (sticky-key 300 lsft)
+  sr (sticky-key 300 rsft)
+  spc-nav (tap-hold-next-release 200 spc (layer-toggle nav))
+  tgb (layer-switch base)
+  tgq (layer-switch qwerty)
+)
+
+(deflayer base
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
+  @xcp a    r    s    t    d    h    n    e    i    o    '    @xrp
+  @sl  z    x    c    v    b    k    m    ,    .    /    @sr
+  fn lalt lmet lctl           @spc-nav            @xrb print ralt
+)
+
+(deflayer qwerty
+  _  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _   q    w    e    r    t    y    u    i    o    p    _    _    _
+  _   a    s    d    f    g    h    j    k    l    _    _    _
+  _   z    x    c    v    b    n    m    _    _    _    _
+  fn lalt lmet lctl           @spc-nav            @xrb print ralt
+)
+
+(deflayer nav
+  _    _    _    _    _    _     _    _    _    _    _    _    _    _
+  @tgq    _    _    _    _    _     _    _    _    _    _    _    _    _
+  @tgb    _    left up   down right h    j    k    l    _    _    _
+  _    _    _    _    _    _     _    _    _    _     _    _
+  _    _    _    _              _               _    _    _
+)
