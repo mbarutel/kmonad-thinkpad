@@ -48,8 +48,8 @@
 
 (deflayer nav
   _    _    _    _    _    _     _    _    _    _    _    _    _    _
-  @tgq    _    _    _    _    _     _    _    _    _    _    _    _    _
-  @tgb    _ _   _ _ _  _    left    down    up    right    _    _
-  _    _    _    _    _    _     _    _    _    _     _    _
+  @tgq    [    &    *    =    ]     caps    _    _    _    _    _    _    _
+  @tgb    { $   % ^ }  -    left    down    up    right    _    _
+  _    \(    !    @    #    \)     +    home    _    _     end    _
   _    _    _    _              _               _    _    _
 )
