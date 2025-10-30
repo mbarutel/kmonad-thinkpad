@@ -28,21 +28,61 @@
   spc-nav (tap-hold-next-release 200 spc (layer-toggle nav))
   tgb (layer-switch base)
   tgq (layer-switch qwerty)
+
+  ;; Autoshift for numbers
+  as1 (tap-hold-next 200 1 S-1)
+  as2 (tap-hold-next 200 2 S-2)
+  as3 (tap-hold-next 200 3 S-3)
+  as4 (tap-hold-next 200 4 S-4)
+  as5 (tap-hold-next 200 5 S-5)
+  as6 (tap-hold-next 200 6 S-6)
+  as7 (tap-hold-next 200 7 S-7)
+  as8 (tap-hold-next 200 8 S-8)
+  as9 (tap-hold-next 200 9 S-9)
+  as0 (tap-hold-next 200 0 S-0)
+
+  ;; Autoshift for letters
+  asa (tap-hold-next 200 a S-a)
+  asb (tap-hold-next 200 b S-b)
+  asc (tap-hold-next 200 c S-c)
+  asd (tap-hold-next 200 d S-d)
+  ase (tap-hold-next 200 e S-e)
+  asf (tap-hold-next 200 f S-f)
+  asg (tap-hold-next 200 g S-g)
+  ash (tap-hold-next 200 h S-h)
+  asi (tap-hold-next 200 i S-i)
+  asj (tap-hold-next 200 j S-j)
+  ask (tap-hold-next 200 k S-k)
+  asl (tap-hold-next 200 l S-l)
+  asm (tap-hold-next 200 m S-m)
+  asn (tap-hold-next 200 n S-n)
+  aso (tap-hold-next 200 o S-o)
+  asp (tap-hold-next 200 p S-p)
+  asq (tap-hold-next 200 q S-q)
+  asr (tap-hold-next 200 r S-r)
+  ass (tap-hold-next 200 s S-s)
+  ast (tap-hold-next 200 t S-t)
+  asu (tap-hold-next 200 u S-u)
+  asv (tap-hold-next 200 v S-v)
+  asw (tap-hold-next 200 w S-w)
+  asx (tap-hold-next 200 x S-x)
+  asy (tap-hold-next 200 y S-y)
+  asz (tap-hold-next 200 z S-z)
 )
 
 (deflayer base
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    g    j    l    u    y    '    [    ]    \
-  @xcp a    r    s    t    d    h    n    e    i    o    ;    @xrp
-  @sl  z    x    c    v    b    k    m    ,    .    /    @sr
+  grv  @as1 @as2 @as3 @as4 @as5 @as6 @as7 @as8 @as9 @as0 -    =    bspc
+  tab  @asq @asw @asf @asp @asg @asj @asl @asu @asy '    [    ]    \
+  @xcp @asa @asr @ass @ast @asd @ash @asn @ase @asi @aso ;    @xrp
+  @sl  @asz @asx @asc @asv @asb @ask @asm ,    .    /    @sr
   fn lalt lmet @xrd           @spc-nav            @xrb print ralt
 )
 
 (deflayer qwerty
   _  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _   q    w    e    r    t    y    u    i    o    p    _    _    _
-  _   a    s    d    f    g    h    j    k    l    _    _    _
-  _   z    x    c    v    b    n    m    _    _    _    _
+  _   @asq @asw @ase @asr @ast @asy @asu @asi @aso @asp _    _    _
+  _   @asa @ass @asd @asf @asg @ash @asj @ask @asl _    _    _
+  _   @asz @asx @asc @asv @asb @asn @asm _    _    _    _
   fn lalt lmet lctl           @spc-nav            @xrb print ralt
 )
 
